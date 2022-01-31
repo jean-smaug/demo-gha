@@ -29,12 +29,19 @@ jobs: # Jobs are a group of steps
 
     needs: install
 
+    strategy:
+      matrix:
+        include:
+          - variable: wesh
+          - variable: bonjour
+          - variable: smaug
+
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
           node-version: 14.x
-      - run: TEST=wesh yarn test
+      - run: TEST=${{matrix.variable}} yarn test
 
   build:
     runs-on: ubuntu-latest
