@@ -8,7 +8,7 @@ on:
     branches: [master]
 
 jobs: # Jobs are a group of steps
-  build:
+  install:
     runs-on: ubuntu-latest
 
     steps:
@@ -17,6 +17,33 @@ jobs: # Jobs are a group of steps
         with: # Actions can have parameters
           node-version: 14.x
       - run: yarn install
-      - run: TEST=hello yarn test
+
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2 # Actions are "packages" for GHA
+      - uses: actions/setup-node@v2
+        with: # Actions can have parameters
+          node-version: 14.x
       - run: yarn build
+
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2 # Actions are "packages" for GHA
+      - uses: actions/setup-node@v2
+        with: # Actions can have parameters
+          node-version: 14.x
+      - run: TEST=hello yarn test
+
+  e2e:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2 # Actions are "packages" for GHA
+      - uses: actions/setup-node@v2
+        with: # Actions can have parameters
+          node-version: 14.x
       - run: yarn e2e
