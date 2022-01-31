@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
+    "dev": "parcel src/index.html",
     "test": "echo $TEST",
     "build": "parcel build src/index.html",
     "e2e": "cat dist/index.html"
