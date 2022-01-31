@@ -21,6 +21,8 @@ jobs: # Jobs are a group of steps
   build:
     runs-on: ubuntu-latest
 
+    needs: install
+
     steps:
       - uses: actions/checkout@v2 # Actions are "packages" for GHA
       - uses: actions/setup-node@v2
@@ -31,6 +33,8 @@ jobs: # Jobs are a group of steps
   test:
     runs-on: ubuntu-latest
 
+    needs: install
+
     steps:
       - uses: actions/checkout@v2 # Actions are "packages" for GHA
       - uses: actions/setup-node@v2
@@ -40,6 +44,8 @@ jobs: # Jobs are a group of steps
 
   e2e:
     runs-on: ubuntu-latest
+
+    needs: build
 
     steps:
       - uses: actions/checkout@v2 # Actions are "packages" for GHA
