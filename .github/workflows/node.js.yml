@@ -20,3 +20,4 @@ jobs: # Jobs are a group of steps
       - run: yarn lint # Use the "run:" to execute some bash command
       - run: yarn test
       - run: yarn build
+      - run: yarn e2e

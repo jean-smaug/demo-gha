@@ -6,7 +6,7 @@
     "lint": "echo 'lint'",
     "test": "echo 'test'",
     "build": "parcel build index.html",
-    "e2e": "echo 'e2e'"
+    "e2e": "cat dist/index.html"
   },
   "dependencies": {
     "parcel": "2.2.1"
