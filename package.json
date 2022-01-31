@@ -1,0 +1,15 @@
+{
+  "name": "gha-demo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "lint": "echo 'lint'",
+    "test": "echo 'test'",
+    "build": "parcel build index.html",
+    "e2e": "echo 'e2e'"
+  },
+  "dependencies": {
+    "parcel": "2.2.1"
+  }
+}

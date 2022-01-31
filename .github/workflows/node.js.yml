@@ -1,18 +1,3 @@
----
-marp: true
----
-
-# Github Actions
-
----
-
-![](./images/setup.png)
-
----
-
-## GHA simple configuration
-
-```yml
 name: Node.js CI
 
 # CI should be runned on master branch and on PR targeting master
@@ -34,4 +19,3 @@ jobs: # Jobs are a group of steps
       - run: yarn lint # Use the "run:" to execute some bash command
       - run: yarn test
       - run: yarn build
-```
