@@ -40,6 +40,12 @@ jobs: # Jobs are a group of steps
       - run: ls
       - run: tar -zxf node_modules.tar.gz
       - run: yarn build
+      - run: tar -zcf dist.tar.gz ./dist
+      - uses: actions/upload-artifact@v2
+        with:
+          name: app-build
+          path: dist.tar.gz
+          retention-days: 1
 
   test:
     runs-on: ubuntu-latest
@@ -63,4 +69,8 @@ jobs: # Jobs are a group of steps
       - uses: actions/setup-node@v2
         with: # Actions can have parameters
           node-version: 14.x
+      - uses: actions/download-artifact@v2
+        with:
+          name: app-build
+      - run: tar -zxf dist.tar.gz
       - run: yarn e2e
