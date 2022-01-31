@@ -16,6 +16,7 @@ jobs: # Jobs are a group of steps
       - uses: actions/setup-node@v2
         with: # Actions can have parameters
           node-version: 14.x
-      - run: yarn lint # Use the "run:" to execute some bash command
-      - run: yarn test
+      - run: yarn install
+      - run: TEST=hello yarn test
       - run: yarn build
+      - run: yarn e2e
