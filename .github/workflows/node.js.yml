@@ -52,12 +52,19 @@ jobs: # Jobs are a group of steps
 
     needs: install
 
+    strategy:
+      matrix:
+        include:
+          - variable: bonjour
+          - variable: hello
+          - variable: wesh
+
     steps:
       - uses: actions/checkout@v2 # Actions are "packages" for GHA
       - uses: actions/setup-node@v2
         with: # Actions can have parameters
           node-version: 14.x
-      - run: TEST=hello yarn test
+      - run: TEST=${{matrix.variable}} yarn test
 
   e2e:
     runs-on: ubuntu-latest
