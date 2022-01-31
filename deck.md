@@ -10,6 +10,26 @@ marp: true
 
 ---
 
+<style scoped>
+
+h2 {
+    font-size: 60px;
+}
+
+li{
+    font-size: 40px;
+}
+
+</style>
+
+## Goals
+
+- Workflow, Job, Step
+- Share data between jobs
+- Matrix 🕶️
+
+---
+
 ## GHA simple configuration
 
 ```yml
