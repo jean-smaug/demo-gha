@@ -17,6 +17,12 @@ jobs: # Jobs are a group of steps
         with: # Actions can have parameters
           node-version: 14.x
       - run: yarn install
+      - run: tar -zcf node_modules.tar.gz ./node_modules
+      - uses: actions/upload-artifact@v2
+        with:
+          name: project-dependencies
+          path: node_modules.tar.gz
+          retention-days: 1
 
   build:
     runs-on: ubuntu-latest
@@ -28,6 +34,11 @@ jobs: # Jobs are a group of steps
       - uses: actions/setup-node@v2
         with: # Actions can have parameters
           node-version: 14.x
+      - uses: actions/download-artifact@v2
+        with:
+          name: project-dependencies
+      - run: ls
+      - run: tar -zxf node_modules.tar.gz
       - run: yarn build
 
   test:
