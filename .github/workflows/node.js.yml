@@ -67,6 +67,8 @@ jobs: # Jobs are a group of steps
 
     needs: install
 
+    needs: build
+
     steps:
       - uses: actions/checkout@v2 # Actions are "packages" for GHA
       - uses: actions/setup-node@v2
