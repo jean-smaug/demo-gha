@@ -29,6 +29,13 @@ jobs: # Jobs are a group of steps
 
     needs: install
 
+    strategy:
+      matrix:
+        include:
+          - variable: bonjour
+          - variable: coucou
+          - variable: salut
+
     steps:
       - uses: actions/checkout@v2 # Actions are "packages" for GHA
       - uses: actions/setup-node@v2
@@ -38,7 +45,7 @@ jobs: # Jobs are a group of steps
         with:
           name: project-dependencies
       - run: tar -zxf node_modules.tar.gz
-      - run: TEST=coucou yarn test
+      - run: TEST=${{matrix.variable}} yarn test
 
   build:
     runs-on: ubuntu-latest
