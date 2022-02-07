@@ -11,13 +11,13 @@ jobs: # Jobs are a group of steps
   test:
     runs-on: ubuntu-latest
 
-      steps:
-        - uses: actions/checkout@v2 # Actions are "packages" for GHA
-        - uses: actions/setup-node@v2
-          with: # Actions can have parameters
-            node-version: 14.x
-        - run: yarn install
-        - run: TEST=coucou yarn test
+    steps:
+      - uses: actions/checkout@v2 # Actions are "packages" for GHA
+      - uses: actions/setup-node@v2
+        with: # Actions can have parameters
+          node-version: 14.x
+      - run: yarn install
+      - run: TEST=coucou yarn test
 
   build:
     runs-on: ubuntu-latest
