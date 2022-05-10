@@ -31,7 +31,7 @@ jobs: # Jobs are a group of steps
 
     strategy:
       matrix:
-        include:
+        context:
           - variable: bonjour
           - variable: coucou
           - variable: salut
@@ -45,7 +45,7 @@ jobs: # Jobs are a group of steps
         with:
           name: project-dependencies
       - run: tar -zxf node_modules.tar.gz
-      - run: TEST=${{matrix.variable}} yarn test
+      - run: TEST=${{matrix.context.variable}} yarn test
 
   build:
     runs-on: ubuntu-latest
